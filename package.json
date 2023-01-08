@@ -1,0 +1,34 @@
+{
+  "name": "emorio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.9.10",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "axios": "^1.1.3",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.4",
+    "framer-motion": "^7.6.7",
+    "next": "13.0.4",
+    "react": "18.2.0",
+    "react-cookie": "^4.1.1",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.39.4",
+    "react-icons": "^4.6.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-toastify": "^9.1.1",
+    "typescript": "4.9.3",
+    "yup": "^0.32.11"
+  }
+}
