@@ -37,11 +37,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   /* Deslogar */
   const signOut = () => {
-    removeCookie("@emorio.token", { path: "/" });
     toast.success(
       "Para acessar todos os recursos disponíveis, faça o login em nosso site. Até Mais!"
     );
-    router.push("/");
+    removeCookie("@emorio.token", { path: "/" });
     setUser(InitialUserProps);
   };
 
