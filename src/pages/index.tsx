@@ -34,10 +34,11 @@ import { ParticipantsCard } from "../components/Card/ParticipantsCard";
 import { DividerSection } from "../components/DividerSection";
 import { listParticipants } from "../utils/mockParticipants";
 
-import { useCookies } from "react-cookie";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Home: NextPage = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(["@emorio.token"]);
+  const { user } = useContext(AuthContext);
 
   const isMobile = useBreakpointValue({
     base: true,
@@ -77,7 +78,7 @@ const Home: NextPage = () => {
                   direction={isMobile ? "column" : "row"}
                   w={isMobile ? "full" : "sm"}
                 >
-                  {cookies["@emorio.token"] ? (
+                  {user.email.length ? (
                     <PrimaryButton onClick={() => Router.push("/about")}>
                       Saiba Mais
                     </PrimaryButton>
@@ -401,10 +402,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-/* export const getServerSideProps = withAuth(async (ctx: any) => {
-  return {
-    props: {},
-  };
-});
- */

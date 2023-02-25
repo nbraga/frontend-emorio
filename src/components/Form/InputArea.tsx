@@ -23,6 +23,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     <FormControl isInvalid={!!error}>
       <InputGroup color="gray.100">
         <ChakraInput
+          color="gray.200"
           as={Textarea}
           w={"full"}
           h={150}

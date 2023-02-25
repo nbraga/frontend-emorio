@@ -17,28 +17,16 @@ import { TextButton } from "./Button/TextButton";
 import { AiOutlineMenu } from "react-icons/ai";
 
 import Router from "next/router";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { useCookies } from "react-cookie";
 
 export const Header = () => {
-  const { signOut } = useContext(AuthContext);
-  const [cookies, setCookie, removeCookie] = useCookies(["@emorio.token"]);
-
-  const [token, setToken] = useState("");
+  const { signOut, user } = useContext(AuthContext);
 
   const isMobile = useBreakpointValue({
     base: true,
     lg: false,
   });
-
-  useEffect(() => {
-    const token = cookies["@emorio.token"];
-
-    if (token) {
-      setToken(token);
-    }
-  }, []);
 
   return (
     <Flex position={"fixed"} zIndex={5} w={"full"} h={"100px"} bg={"gray.100"}>
@@ -83,7 +71,9 @@ export const Header = () => {
                     Contato
                   </TextButton>
                   <TextButton>Projetos</TextButton>
-                  {token && <TextButton onClick={signOut}>Deslogar</TextButton>}
+                  {user.email.length && (
+                    <TextButton onClick={signOut}>Deslogar</TextButton>
+                  )}
                 </Stack>
               </PopoverBody>
             </PopoverContent>
@@ -100,7 +90,9 @@ export const Header = () => {
               Contato
             </TextButton>
             <TextButton>Projetos</TextButton>
-            {token && <TextButton onClick={signOut}>Deslogar</TextButton>}
+            {user.email.length && (
+              <TextButton onClick={signOut}>Deslogar</TextButton>
+            )}
           </Stack>
         )}
       </Container>
